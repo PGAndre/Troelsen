@@ -70,8 +70,105 @@ namespace Troelsen
             }
             UseBiglnteger();
 
+            void DigitSeparators()
+            {
+                Console.WriteLine("=> Use Digit Separators:");
+                Console.Write("Integer:");
+                Console.WriteLine(123_456);
+                Console.Write("Long:");
+                Console.WriteLine(123_456_789L);
+                Console.Write("Float:");
+                Console.WriteLine(123_456.1234F);
+                Console.Write("Double:");
+                Console.WriteLine(123_456.12);
+                Console.Write("Decimal:");
+                Console.WriteLine(123_456.12M);
+            }
 
-                            Console.ReadKey();
+            DigitSeparators();
+
+
+            void BinaryLiterals()
+            {
+                Console.WriteLine("=> Use Binary Literals:");
+                Console.WriteLine("Sixteen: {0}", 0b0001_0000);
+                Console.WriteLine("Thirty Two: {0}", 0b0010_0000);
+                Console.WriteLine("Sixty Four: {0}", 0b0100_0000);
+            }
+
+            BinaryLiterals();
+
+
+            void StringEquality()
+            {
+                Console.WriteLine("=> String equality:");
+                string s1 = "Hello!";
+                string s2 = "Yo!";
+                Console.WriteLine("s1 = {0}", s1);
+                Console.WriteLine("s2 = {0}", s2);
+                Console.WriteLine();
+
+                // Test these strings for equality.
+                Console.WriteLine("s1 == s2: {0}", s1 == s2);
+                Console.WriteLine("s1 == Hello!: {0}", s1 == "Hello!");
+                Console.WriteLine("s1 == HELLO!: {0}", s1 == "HELLO!");
+                Console.WriteLine("s1 == hello!: {0}", s1 == "hello!");
+                Console.WriteLine("s1.Equals(s2): {0}", s1.Equals(s2));
+                Console.WriteLine("Yo.Equals(s2): {0}", "Yo!".Equals(s2));
+                Console.WriteLine();
+            }
+
+            StringEquality();
+
+
+            void StringEqualitySpecifyingCompareRules()
+            {
+                Console.WriteLine("=> String equality (Case Insensitive:");
+                string s1 = "Hello!";
+                string s2 = "HELLO!";
+                Console.WriteLine("s1 = {0}", s1);
+                Console.WriteLine("s2 = {0}", s2);
+                Console.WriteLine();
+
+                // Check the results of changing the default compare rules.
+                Console.WriteLine("Default rules: s1={0},s2={1}s1.Equals(s2): {2}", s1, s2, s1.Equals(s2));
+                Console.WriteLine("Ignore case: s1.Equals(s2, StringComparison.OrdinalIgnoreCase): {0}", s1.Equals(s2, StringComparison.OrdinalIgnoreCase));
+                Console.WriteLine("Ignore case, Invariant Culture: s1.Equals(s2, StringComparison.InvariantCultureIgnoreCase): {0}", s1.Equals(s2, StringComparison.InvariantCultureIgnoreCase));
+                Console.WriteLine();
+                Console.WriteLine("Default rules: s1={0},s2={1} s1.IndexOf(\"E\"): {2}", s1, s2, s1.IndexOf("E"));
+                Console.WriteLine("Ignore case: s1.IndexOf(\"E\", StringComparison.OrdinalIgnoreCase): {0}", s1.IndexOf("E", StringComparison.OrdinalIgnoreCase));
+                Console.WriteLine("Ignore case, Invariant Culture: s1.IndexOf(\"E\", StringComparison.InvariantCultureIgnoreCase): {0}", s1.IndexOf("E", StringComparison.InvariantCultureIgnoreCase));
+                Console.WriteLine();
+            }
+
+            StringEqualitySpecifyingCompareRules();
+
+            void FunWithStringBuilder()
+            {
+                Console.WriteLine("=> Using the StringBuilder:");
+
+                // Make a StringBuilder with an initial size of 256.
+                StringBuilder sb = new StringBuilder("**** Fantastic Games ****", 256);
+
+                sb.Append("\n");
+                sb.AppendLine("Half Life");
+                sb.AppendLine("Beyond Good and Evil");
+                sb.AppendLine("Deus Ex 2");
+                sb.AppendLine("System Shock");
+                Console.WriteLine(sb.ToString());
+
+                sb.Replace("2", "Invisible War");
+                Console.WriteLine(sb.ToString());
+                Console.WriteLine("sb has {0} chars.", sb.Length);
+                Console.WriteLine();
+            }
+
+            FunWithStringBuilder();
+
+
+
+
+            Console.ReadKey();
         }
     }
 }
